@@ -25,7 +25,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 1rem;
-    background-color: #e299f1;
+    background-color: #f6ed8a;
 }
 
 .left-side, .right-side {
@@ -99,7 +99,18 @@ a {
     user-select: none;
 }
 
-.app-icon {
+.search-buttons {
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+.search-buttons a {
+    display: flex;
+    align-items: center;
+}
+
+.options-icon {
     width: 1.5rem;
     height: 1.5rem;
     display: block;
@@ -213,4 +224,32 @@ a {
     font-size: 0.9rem;
     color: #7f8081;
     margin: 0;
+}
+
+.gif-container {
+    width: 100%;
+    height: calc(100vh - 100px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.gif-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.options-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+}
+
+.options-content p {
+    font-size: 2rem;
+    color: #3c4043;
 }
