@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Profile - Web Portal">
+    <meta property="og:description" content="User pProfile Settings.">
+    <meta property="og:image" content="https://static.wikia.nocookie.net/houkai-star-rail/images/2/29/Honkai_Star_Rail.png/revision/latest?cb=20230707214654">
+    <title>Profile - Web Portal</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+
+    <div class="top-section">
+        <div class="left-side">
+            <a href="../index.html">Home</a>
+            <a href="./about.html">About</a>
+            <a href="./org.html">Organization</a>
+        </div>
+        <div class="right-side">
+            <a href="https://mail.google.com/mail/u/0/#inbox">Gmail</a>
+            <a href="https://honkai-star-rail.fandom.com/wiki/Pom-Pom_Gallery">Stickers</a>
+            <a href="./options.html">
+                <img 
+                class="options-icon"
+                src="https://cdn-icons-png.flaticon.com/512/82/82122.png">
+            </a>
+            <a href="./profile.html">
+                <img 
+                class="profile-icon"
+                src="https://i.pinimg.com/736x/95/3f/40/953f40dcaae1e29d76892c2454a27ca6.jpg">
+            </a>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="middle-section">
+        <div class="profile-container">
+            <div class="profile-header">
+                <img class="profile-avatar" src="https://i.pinimg.com/736x/95/3f/40/953f40dcaae1e29d76892c2454a27ca6.jpg" alt="Profile">
+                <div class="profile-info">
+                    <h1 id="displayName">NeiKos496</h1>
+                    <p class="username" id="displayUsername">@NeiKos496</p>
+                </div>
+            </div>
+
+            <div class="profile-settings">
+                <div class="settings-section">
+                    <h2>Account Settings</h2>
+                    <div class="setting-item">
+                        <label>Full Name</label>
+                        <input type="text" id="fullNameInput" value="NeiKos496">
+                    </div>
+                    <div class="setting-item">
+                        <label>Email</label>
+                        <input type="email" value="neikos496@gmail.com">
+                    </div>
+                    <div class="setting-item">
+                        <label>Username</label>
+                        <input type="text" id="usernameInput" value="NeiKos496">
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h2>Preferences</h2>
+                    <div class="setting-item">
+                        <label>Theme</label>
+                        <select id="themeSelect">
+                            <option value="light">Light</option>
+                            <option value="dark">Dark</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label>Language</label>
+                        <select>
+                            <option>English</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h2>Privacy</h2>
+                    <div class="setting-item checkbox">
+                        <input type="checkbox" id="private">
+                        <label for="private">Private Account</label>
+                    </div>
+                    <div class="setting-item checkbox">
+                        <input type="checkbox" id="analytics" checked>
+                        <label for="analytics">Allow Analytics</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const fullNameInput = document.getElementById('fullNameInput');
+        const usernameInput = document.getElementById('usernameInput');
+        const displayName = document.getElementById('displayName');
+        const displayUsername = document.getElementById('displayUsername');
+        const themeSelect = document.getElementById('themeSelect');
+        const htmlElement = document.documentElement;
+
+        // Load theme preference on page load
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        htmlElement.setAttribute('data-theme', savedTheme);
+        themeSelect.value = savedTheme;
+
+        fullNameInput.addEventListener('input', () => {
+            displayName.textContent = fullNameInput.value || 'User Profile';
+        });
+
+        usernameInput.addEventListener('input', () => {
+            displayUsername.textContent = '@' + usernameInput.value;
+        });
+
+        themeSelect.addEventListener('change', (e) => {
+            const selectedTheme = e.target.value;
+            htmlElement.setAttribute('data-theme', selectedTheme);
+            // Save theme preference to localStorage
+            localStorage.setItem('theme', selectedTheme);
+        });
+    </script>
+
+</body>
+</html>
