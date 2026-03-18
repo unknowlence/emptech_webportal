@@ -200,11 +200,18 @@ a {
     width: 100%;
     padding: 2rem;
     box-sizing: border-box;
+    
 }
 
 .store-content h1 {
     text-align: center;
     font-size: 2.5rem;
+    color: var(--text-primary);
+}
+
+.store-content p {
+    text-align: center;
+    font-size: 1rem;
     color: var(--text-primary);
 }
 
